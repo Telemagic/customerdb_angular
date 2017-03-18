@@ -1,0 +1,27 @@
+
+<div class="card">
+  <div class="card-content">
+    <table class="striped highlight responsive-table">
+      <thead>
+        <tr>
+          <th>Site</th>
+          <th>Customer</th>
+          <th>Licenses</th>
+          <th>Contacts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customerList | async">
+          <td>{{customer.siteNick}}</td>
+          <td>{{customer.customer}}</td>
+          <td>{{customer.license.numberOfAgents}}</td>
+          <td>
+            <span *ngFor="let contact of customer.contacts">
+              {{contact.email}}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

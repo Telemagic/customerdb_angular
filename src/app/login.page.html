@@ -1,0 +1,28 @@
+
+<div *ngIf="loginError" class="card-panel red" style="margin: 15px;">
+  <span class="white-text">Login failed - You have entered wrong username and/or password</span>
+</div>
+
+<form>
+  <div class="row" style="margin: 30px 15px 30px 15px;">
+
+    <div class="input-field col s12">
+      <i class="material-icons prefix">perm_identity</i>
+      <input materialize [(ngModel)]="credentials.email" name="email" type="email">
+      <label>Username</label>
+    </div>
+
+    <div class="input-field col s12">
+      <i class="material-icons prefix">lock_outline</i>
+      <input materialize [(ngModel)]="credentials.password" name="password" type="password">
+      <label>Password</label>
+    </div>
+
+    <div class="col s12" style="margin-top: 15px">
+      <button (click)="login()" class="btn waves-effect waves-light">
+        Login <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
+
+</form>
