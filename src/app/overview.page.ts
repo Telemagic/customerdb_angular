@@ -4,7 +4,7 @@ import {Component, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Customer} from './dataTypes';
 import {ObservableInput} from 'rxjs/Observable';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import {AngularFire} from 'angularfire2';
 
 @Component({
   template: require('./overview.page.html')
@@ -18,13 +18,13 @@ export class OverviewPage {
     this.customerList = af.database.list('customers').catch(this.errorHandler)
   }
 
-  hideItem(item: Customer): boolean {
-      return !this.searchFilter || item.siteNick.indexOf(this.searchFilter) >= 0;
+  editCustomer(customer: Customer) {
+    this.router.navigate(['edit', customer.siteNick]);
   }
 
   private errorHandler(error: any, caught: Observable<any[]>): ObservableInput<any> {
     console.log(error);
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
     return [];
   }
 

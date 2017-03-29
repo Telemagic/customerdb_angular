@@ -10,10 +10,15 @@ import { AuthProviders, AuthMethods, AngularFireModule } from 'angularfire2';
 import { MainPage } from './main.page';
 import { LoginPage } from './login.page';
 import { OverviewPage } from './overview.page';
+import { EditPage } from "./edit.page";
+
+import { FilterPipe } from "./filter.pipe";
+
 
 const routes: Routes = [
   {path: 'login', component: LoginPage},
   {path: 'overview', component: OverviewPage},
+  {path: 'edit/:siteNick', component: EditPage},
   {path: '**', redirectTo: '/overview', pathMatch: 'full'}
 ];
 
@@ -42,7 +47,9 @@ const firebaseAuthConfig = {
   declarations: [
     MainPage,
     LoginPage,
-    OverviewPage
+    OverviewPage,
+    EditPage,
+    FilterPipe
   ],
   bootstrap: [
     MainPage

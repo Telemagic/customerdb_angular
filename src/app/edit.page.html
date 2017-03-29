@@ -1,0 +1,20 @@
+
+<div class="row">
+  <h3 class="col s12">{{customer?.siteNick}}</h3>
+  <form class="col s12" [formGroup]="editCustomerForm">
+
+    <div class="input-field col s12 l6">
+      <i class="material-icons prefix">assignment</i>
+      <input id="siteNick" formControlName="siteNick" type="text">
+      <label>Site Nick</label>
+    </div>
+
+    <div class="input-field col s12 l6">
+      <i class="material-icons prefix">assignment</i>
+      <input id="customer" formControlName="customer" type="text">
+      <label for="customer">Customer</label>
+    </div>
+
+  </form>
+</div>
+

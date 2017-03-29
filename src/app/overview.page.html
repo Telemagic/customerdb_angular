@@ -1,9 +1,15 @@
 
-<div class="card">
+<div class="card row">
   <div class="card-content">
-    <table class="striped highlight responsive-table">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">search</i>
+      <input materialize id="icon_telephone" type="tel" [(ngModel)]="searchFilter">
+      <label for="icon_telephone">Search</label>
+    </div>
+    <table class="col s12 striped highlight">
       <thead>
         <tr>
+          <th></th>
           <th>Site</th>
           <th>Customer</th>
           <th>Licenses</th>
@@ -11,7 +17,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of customerList | async">
+        <tr *ngFor="let customer of customerList | async | filter: {siteNick: searchFilter}">
+          <td>
+            <a (click)="editCustomer(customer)" class="waves-effect waves-light btn-floating">
+              <i class="material-icons left">edit</i>
+            </a>
+          </td>
           <td>{{customer.siteNick}}</td>
           <td>{{customer.customer}}</td>
           <td>{{customer.license.numberOfAgents}}</td>
